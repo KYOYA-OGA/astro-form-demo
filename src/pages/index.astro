@@ -53,6 +53,7 @@ const API_URL = import.meta.env.PUBLIC_API_URL;
 			submitButton.disabled = false;
 			submitButton.innerText = 'Submit';
 			formResult.innerText = result.message;
+			contactForm.reset();
 			return;
 		}
 
