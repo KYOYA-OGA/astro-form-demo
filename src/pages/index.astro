@@ -33,11 +33,11 @@ const API_URL = import.meta.env.PUBLIC_API_URL;
 		e.preventDefault();
 		submitButton.disabled = true;
 		submitButton.innerText = 'Submitting...';
-		const formElment = document.forms.contact;
+		const formElement = document.forms.contact;
 		const data = {
-			name: formElment.name.value,
-			email: formElment.email.value,
-			message: formElment.message.value
+			name: formElement.name.value,
+			email: formElement.email.value,
+			message: formElement.message.value
 		};
 
 		const response = await fetch(apiUrl,{
