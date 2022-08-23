@@ -49,13 +49,15 @@ const API_URL = import.meta.env.PUBLIC_API_URL;
 		})
 		const result = await response.json();
 
-		if(result.valid) {
+		if(response.ok) {
 			submitButton.disabled = false;
 			submitButton.innerText = 'Submit';
-			formResult.innerText = 'Thanks! Message sent!';
-		} else if(result.errors) {
+			formResult.innerText = result.message;
+			return;
+		}
+
+		if(result.errors) {
 			const errorMessages = result.errors
-			console.log(errorMessages);
 			const messageList = errorMessages.map(msg=>{
 				return msg.message
 			})
@@ -121,6 +123,8 @@ const API_URL = import.meta.env.PUBLIC_API_URL;
 		padding: 0.5em;
 		border: 1px solid #ccc;
 		border-radius: 5px;
+		font-size: 1rem;
+
 	}
 	textarea{
 		min-height: 150px;
